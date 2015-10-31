@@ -2,6 +2,7 @@ package gcode
 
 import (
 	"encoding/xml"
+	"fmt"
 	"io/ioutil"
 )
 
@@ -27,7 +28,7 @@ func (svc *IssueService) Get(ID string) *IssueGetService {
 }
 
 func (svc *IssueGetService) URL() string {
-	return "https://"
+	return fmt.Sprintf("https://code.google.com/feeds/issues/p/chromium/issues/full/%v", svc.id)
 }
 
 func (svc *IssueGetService) Do() (*Issue, error) {
