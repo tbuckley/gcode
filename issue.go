@@ -2,8 +2,13 @@ package gcode
 
 import (
 	"encoding/xml"
+	"errors"
 	"fmt"
 	"io/ioutil"
+)
+
+var (
+	ErrNotImplemented = errors.New("not implemented")
 )
 
 type IssueService struct {
@@ -57,5 +62,5 @@ func (svc *IssueService) Put(issue *Issue) *IssuePutService {
 }
 
 func (svc *IssuePutService) Do() (*Issue, error) {
-	return nil, nil
+	return nil, ErrNotImplemented
 }
